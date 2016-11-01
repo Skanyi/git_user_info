@@ -12,14 +12,11 @@ def get_user():
 
     username = input("What is your user name: >>")
     profile_info = requests.get('https://api.github.com/users/'+ username)
-    #data = json.loads(profile_info)
+    data = profile_info.json()
+    '''
+    Only returns their location, email, followers and public repos
+    '''
+    info = data['location'], data['followers'], data['email'], data['public_repos']
+    print(info)
 
-    print(profile_info)
-    '''
-    Go through the profile_info and only returns their
-    location, email, followers and public repos
-    '''
-    for info in profile_info:
-        pass
-    #print(profile_info.json())
 get_user()
