@@ -17,6 +17,7 @@ def get_user():
     Only returns their location, email, followers and public repos
     '''
     info = data['location'], data['followers'], data['email'], data['public_repos']
-    print(info)
+    info = list(info)
+    print("Location: %s Followers: %d Email: %s Public Repository: %d" % (info[0], info[1], info[2], info[3]))
 
 get_user()
